@@ -1,59 +1,44 @@
-# 🚀 Stigrock v1.2
 
----
+🚀 Stigrock v1.2
 
-## 🔥 Descrizione
+🔥 Descrizione:
+Stigrock v1.2 è un progetto avanzato e professionale sviluppato per [descrizione del progetto]. Segue le migliori pratiche di sviluppo e distribuzione per garantire qualità, affidabilità e manutenibilità.
 
-Stigrock v1.2 è un progetto avanzato e professionale sviluppato per [descrizione del progetto].  
-Segue le migliori pratiche di sviluppo e distribuzione.
+🛠️ Installazione e Setup:
 
----
+    Clona il repository:
+    git clone https://github.com/dnfhacktm/stigrock-v1.2.git
+    cd stigrock-v1.2
 
-## 🛠️ Installazione e Setup
+    Crea e attiva un ambiente virtuale:
 
-Segui questi passaggi per mettere in piedi l’ambiente e far partire il progetto:
+    Linux/macOS:
+    python3 -m venv venv
+    source venv/bin/activate
 
-```bash
-# 1. Clona il repository
-git clone https://github.com/dnfhacktm/stigrock-v1.2.git
-cd stigrock-v1.2
+    Windows PowerShell:
+    python -m venv venv
+    .\venv\Scripts\Activate.ps1
 
-# 2. Crea e attiva un ambiente virtuale (Linux/macOS)
-python3 -m venv venv
-source venv/bin/activate
+    Aggiorna pip:
+    pip install --upgrade pip
 
-# Windows (PowerShell)
-# python -m venv venv
-# .\venv\Scripts\Activate.ps1
+    Installa dipendenze:
+    pip install -r requirements.txt
 
-# 3. Aggiorna pip all'ultima versione
-pip install --upgrade pip
-
-# 4. Installa tutte le dipendenze dal file requirements.txt
-pip install -r requirements.txt
-
-▶️ Avvio del progetto
-
-Per avviare l'applicazione, da dentro la cartella del progetto e con l’ambiente virtuale attivato:
-
+▶️ Avvio del progetto:
+Con l’ambiente virtuale attivato, esegui:
 python main.py
+(Sostituisci main.py se il file principale ha un nome diverso.)
 
-Nota:
-Se il file principale ha un nome diverso, sostituisci main.py con il file corretto.
-📁 Come aggiungere o creare nuovi file nel progetto
+📁 Come aggiungere o creare nuovi file:
 
-    Creare nuovi file Python
-    Per creare un nuovo modulo o script Python, crea un file .py nella cartella principale o in una sottocartella (ad esempio modules/):
+    Crea un file .py nella cartella principale o in sottocartelle (es. modules/):
+    touch modules/nuovo_modulo.py
 
-touch nuovo_modulo.py
-
-Apri il file con un editor e scrivi il codice.
-
-    Organizzare i file
-    Mantieni una struttura chiara, ad esempio:
+    Mantieni una struttura ordinata:
 
 stigrock-v1.2/
-│
 ├── main.py
 ├── modules/
 │   └── nuovo_modulo.py
@@ -63,38 +48,61 @@ stigrock-v1.2/
 │   └── test_modulo.py
 └── requirements.txt
 
-    Aggiungere nuovi file al repository
-    Dopo aver creato o modificato i file:
+    Aggiungi file a Git:
+    git add nomefile.py
+    git commit -m "Aggiunto nuovo modulo nomefile.py"
+    git push origin main
 
-git add nomefile.py
-git commit -m "Aggiunto nuovo modulo nomefile.py"
-git push origin main
+🧰 Best practice:
 
-🧰 Best practice per lavorare sul progetto
+    Aggiorna sempre il branch principale prima di lavorare:
+    git pull origin main
 
-    Aggiorna sempre il branch principale
-    Prima di iniziare a lavorare, tira sempre gli ultimi aggiornamenti:
+    Usa branch dedicati per feature o fix:
+    git checkout -b feature/nuova-funzionalita
 
-git pull origin main
+    Dopo aver finito:
+    git add .
+    git commit -m "Implementata nuova funzionalità"
+    git push origin feature/nuova-funzionalita
 
-    Usa branch dedicati per nuove feature o fix
-    Esempio:
+    Testa localmente prima di pushare.
 
-git checkout -b feature/nuova-funzionalita
+📂 Cosa mettere su GitHub:
 
-Quando finisci:
+    Codice sorgente (main.py, moduli)
 
-git add .
-git commit -m "Implementata nuova funzionalità"
-git push origin feature/nuova-funzionalita
+    requirements.txt
 
-    Testa localmente prima di fare il push
-    Assicurati che il codice funzioni senza errori nell’ambiente locale.
+    Cartelle dati (data/)
 
-📜 Licenza
+    Test (tests/)
 
-MIT License
-📞 Contatti
+    Documentazione (README.md, LICENSE)
 
+🚫 Cosa NON mettere su GitHub:
+
+    Ambiente virtuale (venv/)
+
+    File temporanei/cache (*.pyc, __pycache__/)
+
+    Cartelle editor/IDE (.vscode/, .idea/)
+
+Consiglio: crea un .gitignore con almeno:
+
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+.idea/
+.vscode/
+.DS_Store
+
+📜 Licenza: MIT License
+
+📞 Contatti:
 Autore: dnfhacktm
 GitHub: https://github.com/dnfhacktm
