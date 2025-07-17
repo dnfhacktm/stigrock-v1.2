@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stigrock-v1.2"
+version = "1.2.0"
+description = "Stigrock: un ngrok personale per servire HTML e CSS dal tuo server"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+  { name = "dnfhacktm", email = "dnfhacktm@libero.it" }
+]
+
+[project.urls]
+Homepage = "https://github.com/dnfhacktm/stigrock-v1.2"
