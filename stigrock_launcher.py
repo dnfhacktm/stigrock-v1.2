@@ -12,7 +12,6 @@ from dotenv import load_dotenv
 
 # === CONFIG ===
 PROJECT_DIR = Path("stiprog")
-PORT = 8080
 
 # === LOAD .env IF EXISTS ===
 load_dotenv()
@@ -36,20 +35,20 @@ def is_port_in_use(port):
         return s.connect_ex(('localhost', port)) == 0
 
 # === START SERVER ===
-def start_http_server():
+def start_http_server(port):
     try:
         os.chdir(PROJECT_DIR)
-        subprocess.run(["python3" if os.name != "nt" else "python", "-m", "http.server", str(PORT)])
+        subprocess.run(["python3" if os.name != "nt" else "python", "-m", "http.server", str(port)])
     except Exception as e:
         print(f"Errore nell’avvio del server: {e}")
 
 # === START NGROK ===
-def start_ngrok_tunnel():
-    public_url = ngrok.connect(PORT, bind_tls=True)
+def start_ngrok_tunnel(port):
+    public_url = ngrok.connect(port, bind_tls=True)
     print("\n✅ Stigrock è online!")
     print(f"🌍 URL pubblico: {public_url}")
-    print("📁 Servendo contenuti da: stiprog/")
-    print("📡 Porta locale:", PORT)
+    print(f"📁 Servendo contenuti da: {PROJECT_DIR}/")
+    print(f"📡 Porta locale: {port}")
     print("➡ Apri il link per vedere il sito!\n")
     return public_url
 
@@ -60,6 +59,18 @@ def main():
     if not PROJECT_DIR.exists():
         print(f"❌ Errore: cartella '{PROJECT_DIR}' non trovata.")
         sys.exit(1)
+
+    # --- Scelta porta ---
+    while True:
+        try:
+            port_input = input("Inserisci la porta locale su cui vuoi avviare il server HTTP (es. 8080): ")
+            PORT = int(port_input)
+            if 1 <= PORT <= 65535:
+                break
+            else:
+                print("❌ Porta non valida. Deve essere tra 1 e 65535.")
+        except ValueError:
+            print("❌ Inserisci un numero valido.")
 
     # --- Edit options ---
     print("Vuoi modificare i file prima dell’avvio?")
@@ -96,13 +107,13 @@ def main():
 
     # --- Avvio server ---
     print("Avvio server HTTP...")
-    server_thread = Thread(target=start_http_server, daemon=True)
+    server_thread = Thread(target=start_http_server, args=(PORT,), daemon=True)
     server_thread.start()
     time.sleep(2)
 
     print("Avvio tunnel Ngrok...\n")
     try:
-        start_ngrok_tunnel()
+        start_ngrok_tunnel(PORT)
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
