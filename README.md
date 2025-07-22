@@ -14,6 +14,8 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 python3 stigrock_launcher.py
+
+```bash
 Windows CMD
 cmd
 Copia
@@ -25,6 +27,8 @@ venv\Scripts\activate.bat
 pip install --upgrade pip
 pip install -r requirements.txt
 python stigrock_launcher.py
+
+```bash
 Windows PowerShell
 powershell
 Copia
