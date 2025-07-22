@@ -1,7 +1,10 @@
-🚀 Stigrock v1.2
+# 🚀 Stigrock v1.2
 
-Preparazione e avvio su Ubuntu/Debian
+## Preparazione e Avvio
 
+### Ubuntu / Debian
+
+```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install python3 python3-venv python3-pip git -y
 git clone https://github.com/dnfhacktm/stigrock-v1.2.git
@@ -11,10 +14,10 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 python3 stigrock_launcher.py
-
-
-Avvio su Windows CMD
-
+Windows CMD
+cmd
+Copia
+Modifica
 git clone https://github.com/dnfhacktm/stigrock-v1.2.git
 cd stigrock-v1.2
 python -m venv venv
@@ -22,10 +25,10 @@ venv\Scripts\activate.bat
 pip install --upgrade pip
 pip install -r requirements.txt
 python stigrock_launcher.py
-
-
-Avvio su Windows PowerShell
-
+Windows PowerShell
+powershell
+Copia
+Modifica
 git clone https://github.com/dnfhacktm/stigrock-v1.2.git
 cd stigrock-v1.2
 python -m venv venv
